@@ -75,10 +75,32 @@ const ttl = arg.reduce((subTtl, item) => {
 
 // divide the array into odd and even arrays
 
-const evenArg = [];
-const oddArg = [];
+const evenArg = arg.filter((item, i) => {
+  return item % 2 === 0;
+});
+// console.log(evenArg);
 
-if (arg % 2 === 0) {
-  evenArg.push();
+const oddArg = arg.filter((item, i) => {
+  return item % 2 === 1;
+});
+// console.log(oddArg);
+
+// remove duplicates from the origional array
+const newArray = [];
+for (let i = 0; i < arg.length; i++) {
+  if (!newArray.includes(arg[i])) {
+    newArray.push(arg[i]);
+  }
 }
-console.log(evenArg);
+// console.log(newArray);
+
+// creater unique array of 50 numbers ranging between 1 and 100 programatically
+const uniqueArr = [];
+for (let i = 0; uniqueArr.length < 50; i++) {
+  const num = Math.ceil(Math.random() * 100);
+  if (!uniqueArr.includes(num)) {
+    uniqueArr.push(num);
+  }
+}
+uniqueArr.sort((a, b) => a - b);
+console.log(uniqueArr);
